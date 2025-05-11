@@ -1,0 +1,470 @@
+[
+  [
+    "Acute bronchitis (disorder)",
+    14942
+  ],
+  [
+    "Prediabetes",
+    8191
+  ],
+  [
+    "Hypertension",
+    6949
+  ],
+  [
+    "Chronic sinusitis (disorder)",
+    5251
+  ],
+  [
+    "Streptococcal sore throat (disorder)",
+    3135
+  ],
+  [
+    "Stroke",
+    2530
+  ],
+  [
+    "Osteoporosis (disorder)",
+    2239
+  ],
+  [
+    "Diabetes",
+    2181
+  ],
+  [
+    "Coronary Heart Disease",
+    1909
+  ],
+  [
+    "Viral sinusitis (disorder)",
+    1582
+  ],
+  [
+    "Laceration of thigh",
+    1293
+  ],
+  [
+    "Laceration of foot",
+    1268
+  ],
+  [
+    "Laceration of hand",
+    1256
+  ],
+  [
+    "Fracture of forearm",
+    1254
+  ],
+  [
+    "Facial laceration",
+    1221
+  ],
+  [
+    "Laceration of forearm",
+    1217
+  ],
+  [
+    "Appendicitis",
+    1180
+  ],
+  [
+    "History of appendectomy",
+    1180
+  ],
+  [
+    "Cardiac Arrest",
+    1168
+  ],
+  [
+    "History of cardiac arrest (situation)",
+    1168
+  ],
+  [
+    "Normal pregnancy",
+    1152
+  ],
+  [
+    "Pulmonary emphysema (disorder)",
+    1148
+  ],
+  [
+    "Polyp of colon",
+    1143
+  ],
+  [
+    "Osteoarthritis of knee",
+    1099
+  ],
+  [
+    "Fracture of clavicle",
+    1054
+  ],
+  [
+    "Chronic obstructive bronchitis (disorder)",
+    1043
+  ],
+  [
+    "Fracture of ankle",
+    993
+  ],
+  [
+    "Fracture subluxation of wrist",
+    888
+  ],
+  [
+    "Neuropathy due to type 2 diabetes mellitus (disorder)",
+    826
+  ],
+  [
+    "Pathological fracture due to osteoporosis (disorder)",
+    819
+  ],
+  [
+    "Asthma",
+    733
+  ],
+  [
+    "Diabetic renal disease (disorder)",
+    659
+  ],
+  [
+    "Acute viral pharyngitis (disorder)",
+    646
+  ],
+  [
+    "Diabetic retinopathy associated with type II diabetes mellitus (disorder)",
+    625
+  ],
+  [
+    "Alzheimer's disease (disorder)",
+    622
+  ],
+  [
+    "Myocardial Infarction",
+    545
+  ],
+  [
+    "History of myocardial infarction (situation)",
+    545
+  ],
+  [
+    "Atopic dermatitis",
+    516
+  ],
+  [
+    "Fracture of rib",
+    510
+  ],
+  [
+    "Perennial allergic rhinitis with seasonal variation",
+    447
+  ],
+  [
+    "Osteoarthritis of hip",
+    416
+  ],
+  [
+    "Closed fracture of hip",
+    410
+  ],
+  [
+    "Perennial allergic rhinitis",
+    403
+  ],
+  [
+    "Localized  primary osteoarthritis of the hand",
+    403
+  ],
+  [
+    "Nonproliferative diabetic retinopathy due to type 2 diabetes mellitus (disorder)",
+    379
+  ],
+  [
+    "Recurrent rectal polyp",
+    364
+  ],
+  [
+    "Impacted molars",
+    357
+  ],
+  [
+    "Rupture of appendix",
+    335
+  ],
+  [
+    "Chronic intractable migraine without aura",
+    306
+  ],
+  [
+    "Non-small cell carcinoma of lung  TNM stage 4 (disorder)",
+    292
+  ],
+  [
+    "Microalbuminuria due to type 2 diabetes mellitus (disorder)",
+    233
+  ],
+  [
+    "Seasonal allergic rhinitis",
+    228
+  ],
+  [
+    "Recurrent urinary tract infection",
+    227
+  ],
+  [
+    "Chronic pain",
+    202
+  ],
+  [
+    "Gout",
+    176
+  ],
+  [
+    "Brain damage - traumatic",
+    170
+  ],
+  [
+    "Non-small cell carcinoma of lung  TNM stage 1 (disorder)",
+    154
+  ],
+  [
+    "Familial Alzheimer's disease of early onset (disorder)",
+    143
+  ],
+  [
+    "Macular edema and retinopathy due to type 2 diabetes mellitus (disorder)",
+    142
+  ],
+  [
+    "Suspected lung cancer (situation)",
+    128
+  ],
+  [
+    "Otitis media",
+    118
+  ],
+  [
+    "Acute allergic reaction",
+    112
+  ],
+  [
+    "Drug overdose",
+    112
+  ],
+  [
+    "Proliferative diabetic retinopathy due to type II diabetes mellitus (disorder)",
+    111
+  ],
+  [
+    "Sprain of ankle",
+    102
+  ],
+  [
+    "Miscarriage in first trimester",
+    99
+  ],
+  [
+    "Primary fibromyalgia syndrome",
+    96
+  ],
+  [
+    "Bullet wound",
+    95
+  ],
+  [
+    "Non-small cell lung cancer (disorder)",
+    91
+  ],
+  [
+    "Primary small cell malignant neoplasm of lung  TNM stage 4 (disorder)",
+    82
+  ],
+  [
+    "Non-small cell carcinoma of lung  TNM stage 2 (disorder)",
+    81
+  ],
+  [
+    "Non-small cell carcinoma of lung  TNM stage 3 (disorder)",
+    75
+  ],
+  [
+    "Rheumatoid arthritis",
+    69
+  ],
+  [
+    "Acute bacterial sinusitis (disorder)",
+    67
+  ],
+  [
+    "Fetus with chromosomal abnormality",
+    65
+  ],
+  [
+    "Third degree burn",
+    62
+  ],
+  [
+    "Whiplash injury to neck",
+    59
+  ],
+  [
+    "Protracted diarrhea",
+    55
+  ],
+  [
+    "Bleeding from anus",
+    55
+  ],
+  [
+    "Escherichia coli urinary tract infection",
+    55
+  ],
+  [
+    "Sprain of wrist",
+    52
+  ],
+  [
+    "Contact dermatitis",
+    51
+  ],
+  [
+    "Sinusitis (disorder)",
+    50
+  ],
+  [
+    "Proteinuria due to type 2 diabetes mellitus (disorder)",
+    50
+  ],
+  [
+    "Malignant tumor of colon",
+    46
+  ],
+  [
+    "Overlapping malignant neoplasm of colon",
+    37
+  ],
+  [
+    "Concussion with no loss of consciousness",
+    36
+  ],
+  [
+    "Cystitis",
+    35
+  ],
+  [
+    "Chronic paralysis due to lesion of spinal cord",
+    32
+  ],
+  [
+    "Blighted ovum",
+    27
+  ],
+  [
+    "First degree burn",
+    26
+  ],
+  [
+    "Injury of medial collateral ligament of knee",
+    13
+  ],
+  [
+    "Small cell carcinoma of lung (disorder)",
+    13
+  ],
+  [
+    "Primary small cell malignant neoplasm of lung  TNM stage 2 (disorder)",
+    12
+  ],
+  [
+    "Primary small cell malignant neoplasm of lung  TNM stage 3 (disorder)",
+    10
+  ],
+  [
+    "Tubal pregnancy",
+    9
+  ],
+  [
+    "Secondary malignant neoplasm of colon",
+    9
+  ],
+  [
+    "Second degree burn",
+    9
+  ],
+  [
+    "Rupture of patellar tendon",
+    8
+  ],
+  [
+    "Tear of meniscus of knee",
+    7
+  ],
+  [
+    "Concussion with loss of consciousness",
+    7
+  ],
+  [
+    "Primary small cell malignant neoplasm of lung  TNM stage 1 (disorder)",
+    7
+  ],
+  [
+    "Fracture of the vertebral column with spinal cord injury",
+    6
+  ],
+  [
+    "History of lower limb amputation (situation)",
+    6
+  ],
+  [
+    "History of amputation of foot (situation)",
+    6
+  ],
+  [
+    "Injury of tendon of the rotator cuff of shoulder",
+    6
+  ],
+  [
+    "Antepartum eclampsia",
+    5
+  ],
+  [
+    "Primary malignant neoplasm of colon",
+    4
+  ],
+  [
+    "Injury of anterior cruciate ligament",
+    4
+  ],
+  [
+    "Blindness due to type 2 diabetes mellitus (disorder)",
+    4
+  ],
+  [
+    "Miscarriage in second trimester",
+    3
+  ],
+  [
+    "Preeclampsia",
+    2
+  ],
+  [
+    "History of disarticulation at wrist (situation)",
+    2
+  ],
+  [
+    "Concussion injury of brain",
+    1
+  ],
+  [
+    "Congenital uterine anomaly",
+    1
+  ],
+  [
+    "Pneumonia",
+    1
+  ],
+  [
+    "Lupus erythematosus",
+    1
+  ]
+]

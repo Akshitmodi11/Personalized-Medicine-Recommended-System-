@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personalized Medication Recommendation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+  <style>
+    #live-preview {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fdfde7;
+      border: 1px solid #d6d67e;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    #live-preview h3 {
+      margin-top: 0;
+      color: #4b4b00;
+    }
+    #preview-list li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+    .input-past {
+      background-color: #e7f3ff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Patient Information Entry</h1>
+    <form method="POST">
+      <div class="grid">
+        
+        <!-- Personal Info -->
+        <div class="form-group">
+          <label for="first_name">First Name:</label>
+          <input type="text" id="first_name" name="first_name" value="{{ form_data.get('first_name', '') }}" required />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name:</label>
+          <input type="text" id="last_name" name="last_name" value="{{ form_data.get('last_name', '') }}" required />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select name="gender" id="gender" required>
+            <option value="">--Select--</option>
+            <option value="male" {% if form_data.get('gender') == 'male' %}selected{% endif %}>Male</option>
+            <option value="female" {% if form_data.get('gender') == 'female' %}selected{% endif %}>Female</option>
+            <option value="other" {% if form_data.get('gender') == 'other' %}selected{% endif %}>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="birthdate">Birthdate or Age:</label>
+          <input type="text" id="birthdate" name="birthdate" value="{{ form_data.get('birthdate', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="marital">Marital Status:</label>
+          <select name="marital" id="marital" required>
+            <option value="">--Select--</option>
+            <option value="single" {% if form_data.get('marital') == 'single' %}selected{% endif %}>Single</option>
+            <option value="married" {% if form_data.get('marital') == 'married' %}selected{% endif %}>Married</option>
+            <option value="divorced" {% if form_data.get('marital') == 'divorced' %}selected{% endif %}>Divorced</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="race">Race:</label>
+          <input type="text" id="race" name="race" value="{{ form_data.get('race', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="ethnicity">Ethnicity:</label>
+          <input type="text" id="ethnicity" name="ethnicity" value="{{ form_data.get('ethnicity', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" value="{{ form_data.get('city', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="county">County:</label>
+          <input type="text" id="county" name="county" value="{{ form_data.get('county', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="zip">Zip Code:</label>
+          <input type="text" id="zip" name="zip" value="{{ form_data.get('zip', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="smoking_status">Smoking Habit:</label>
+          <input type="text" id="smoking_status" name="smoking_status" value="{{ form_data.get('smoking_status', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="allergies">Allergies:</label>
+          <input type="text" id="allergies" name="allergies" value="{{ form_data.get('allergies', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="height_cm">Height (cm):</label>
+          <input type="text" id="height_cm" name="height_cm" value="{{ form_data.get('height_cm', '') }}" />
+        </div>
+        <div class="form-group">
+          <label for="weight_kg">Weight (kg):</label>
+          <input type="text" id="weight_kg" name="weight_kg" value="{{ form_data.get('weight_kg', '') }}" />
+        </div>
+           <!-- Dynamic Note Fields -->
+          
+
+            
+  
+          <div class="form-group full-width">
+            <label>Condition Notes:</label>
+            <div id="condition-container">
+              <input name="condition_notes" class="awesomplete condition-entry" placeholder="Start typing condition..." />
+            </div>
+            <button type="button" class="add-btn" onclick="addConditionField()">+ Add More</button>
+          </div>
+  
+        
+        <!-- Encounter Notes -->
+        <div class="form-group full-width">
+            <label for="encounter_notes">Encounter Notes:</label>
+            <div id="encounter-container">
+              <input name="encounter_notes" class="awesomplete encounter-entry" placeholder="Start typing encounter..." />
+            </div>
+            <button type="button" class="add-btn" onclick="addEncounterField()">+ Add More</button>
+          </div>
+  
+          <!-- Procedure Notes -->
+          <div class="form-group full-width">
+            <label for="procedure_notes">Procedure Notes:</label>
+            <div id="procedure-container">
+              <input name="procedure_notes" class="awesomplete procedure-entry" placeholder="Start typing procedure..." />
+            </div>
+            <button type="button" class="add-btn" onclick="addProcedureField()">+ Add More</button>
+          </div>
+        </div>
+        <div class="form-group full-width">
+            <label>Allergy Codes:</label>
+            <div id="allergy-container">
+              <input name="allergies" class="awesomplete allergy-entry" placeholder="Start typing allergy..." />
+            </div>
+            <button type="button" class="add-btn" onclick="addAllergyField()">+ Add More</button>
+          </div>
+        </div>
+  
+        <div class="button-group">
+            <button type="submit" name="predict" class="predict-btn">Predict Medication</button>
+            <button type="submit" name="submit" class="submit-btn">Submit Patient Record</button>
+            
+        </div>
+      </form>
+  
+      <div id="live-preview">
+        <h3>Live Summary:</h3>
+        <ul id="preview-list"></ul>
+      </div>
+      
+      {% if prediction %}
+      <div class="result">
+        <h2>Predicted Medications:</h2>
+        <ul>
+          {% for code, name in prediction %}
+            <li>{{ code }} — {{ name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js"></script>
+    <script>
+      const BIOPORTAL_API_KEY = "d63321f1-96e7-4848-a107-ff3808094cad";
+  
+      async function fetchBioportalTerms(query, ontology = "SNOMEDCT") {
+        const response = await fetch(`https://data.bioontology.org/search?q=${encodeURIComponent(query)}&ontology=${ontology}&apikey=${BIOPORTAL_API_KEY}`);
+        const data = await response.json();
+        return (data.collection || []).map(item => {
+          const label = item.prefLabel || item.label || item["@id"];
+          const code = item["@id"].split("/").pop();
+          return `${label} — ${code}`;
+        });
+      }
+  
+      function setupBioportalAwesomplete(inputElement) {
+        const awesomplete = new Awesomplete(inputElement, {
+          minChars: 2,
+          maxItems: 15,
+          autoFirst: true,
+          list: []
+        });
+  
+        inputElement.addEventListener("input", async () => {
+          const query = inputElement.value;
+          if (query.length >= 2) {
+            const suggestions = await fetchBioportalTerms(query);
+            awesomplete.list = suggestions;
+          }
+        });
+      }
+  
+      function setupStaticAwesomplete(inputElement, map) {
+        const list = Object.entries(map).map(([desc, code]) => `${desc} — ${code}`);
+        new Awesomplete(inputElement, {
+          list: list,
+          minChars: 1,
+          maxItems: 30,
+          autoFirst: true
+        });
+      }
+  
+      function addField(containerId, name, className, setupFunc, map = null) {
+        const container = document.getElementById(containerId);
+        container.querySelectorAll("input").forEach(input => input.classList.add("input-past"));
+        const input = document.createElement("input");
+        input.name = name;
+        input.className = `awesomplete ${className}`;
+        input.placeholder = `Start typing ${name.replace("_", " ")}...`;
+        container.appendChild(input);
+        setupFunc(input, map);
+        updatePreview();
+      }
+  
+      function addConditionField() {
+        addField("condition-container", "condition_notes", "condition-entry", setupStaticAwesomplete, window.conditionMap);
+      }
+      function addAllergyField() {
+        addField("allergy-container", "allergies", "allergy-entry", setupStaticAwesomplete, window.allergyMap);
+      }
+      function addProcedureField() {
+        addField("procedure-container", "procedure_notes", "procedure-entry", setupBioportalAwesomplete);
+      }
+      function addEncounterField() {
+        addField("encounter-container", "encounter_notes", "encounter-entry", setupBioportalAwesomplete);
+      }
+  
+      async function loadMappings() {
+        const [cond, allergy] = await Promise.all([
+          fetch("/get_map/condition").then(res => res.json()),
+          fetch("/get_map/allergy").then(res => res.json())
+        ]);
+        window.conditionMap = cond;
+        window.allergyMap = allergy;
+  
+        document.querySelectorAll(".condition-entry").forEach(el => setupStaticAwesomplete(el, cond));
+        document.querySelectorAll(".allergy-entry").forEach(el => setupStaticAwesomplete(el, allergy));
+        document.querySelectorAll(".procedure-entry").forEach(setupBioportalAwesomplete);
+        document.querySelectorAll(".encounter-entry").forEach(setupBioportalAwesomplete);
+      }
+  
+      function updatePreview() {
+        const list = document.getElementById("preview-list");
+        if (!list) return;
+        list.innerHTML = "";
+        const fields = [
+          { label: 'Name', ids: ['first_name', 'last_name'] },
+          { label: 'Gender', ids: ['gender'] },
+          { label: 'Birthdate', ids: ['birthdate'] },
+          { label: 'City', ids: ['city'] },
+          { label: 'Race', ids: ['race'] },
+          { label: 'Conditions', name: 'condition_notes' },
+          { label: 'Procedures', name: 'procedure_notes' },
+          { label: 'Encounters', name: 'encounter_notes' },
+          { label: 'Allergies', name: 'allergies' }
+        ];
+  
+        fields.forEach(field => {
+          if (field.ids) {
+            const values = field.ids.map(id => document.getElementById(id)?.value).filter(Boolean).join(" ");
+            if (values.trim()) {
+              const li = document.createElement("li");
+              li.innerHTML = `<strong>${field.label}:</strong> ${values}`;
+              list.appendChild(li);
+            }
+          } else {
+            const inputs = document.getElementsByName(field.name);
+            inputs.forEach(input => {
+              if (input.value.trim()) {
+                const li = document.createElement("li");
+                li.innerHTML = `<strong>${field.label}:</strong> ${input.value}`;
+                list.appendChild(li);
+              }
+            });
+          }
+        });
+      }
+  
+      document.addEventListener("DOMContentLoaded", () => {
+        loadMappings();
+        document.addEventListener("input", updatePreview);
+      });
+    </script>
+  </body>
+  </html>
+  
