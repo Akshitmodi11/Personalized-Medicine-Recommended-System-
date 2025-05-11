@@ -17,7 +17,7 @@ The project pipeline includes:
 - Real-time inference through a Flask web app
 - Enhanced UX with autocomplete via BioPortal and RxNorm integration
 
-## 📺Demo Video
+## Demo Video
 
 [![Watch the Demo](https://img.youtube.com/vi/q80QigVE26o/hqdefault.jpg)](https://youtu.be/q80QigVE26o)
 
