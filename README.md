@@ -1,10 +1,10 @@
-# 🧠 Personalized Medication Recommendation System
+# Personalized Medication Recommendation System
 
 A full-stack intelligent healthcare application that predicts personalized medication codes based on a patient's demographics, conditions, procedures, allergies, and other clinical metadata using a trained machine learning model. The application integrates a user-friendly front end with a CatBoost-based multi-label classifier backend powered by Flask.
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 Traditional clinical decision support systems often lack personalization when suggesting medications. This project addresses that gap by building a **personalized medication recommendation system**, trained on structured synthetic healthcare data.
 
@@ -42,12 +42,13 @@ PMRS/
 │   ├── svd_proc.pkl
 │   ├── svd_cond.pkl
 │   └── svd_alg.pkl
-└── patient_records.csv          # Logged patient entries and predictions
+└── patient_records.csv
+        # Logged patient entries and predictions
 ```
 
 ---
 
-## 📊 Data Pipeline
+## 📊Data Pipeline
 
 ### 1. **Preprocessing:**
 - Patient records include fields like age, gender, city, race, ethnicity, height, weight, marital status, smoking status, etc.
@@ -71,7 +72,7 @@ PMRS/
 
 ---
 
-## 🧠 Model Inputs and Outputs
+##  Model Inputs and Outputs
 
 | Input Type        | Features                           |
 |-------------------|------------------------------------|
@@ -82,29 +83,29 @@ PMRS/
 
 ---
 
-## 🌐 Web App Features
+##  Web App Features
 
-### ✅ Form Inputs:
+### Form Inputs:
 - Personal data: name, age, gender, race, etc.
 - Clinical inputs: condition/procedure/encounter notes (with autocompletion)
 - Allergy fields with code auto-fill using maps
 
-### ✅ Real-time Prediction:
+### Real-time Prediction:
 - Button to **predict medications**
 - Predictions returned with **RxNorm drug names**
 
-### ✅ Submission Logging:
+###  Submission Logging:
 - Button to **submit patient record**
 - Saves to `patient_records.csv` including prediction results
 
-### ✅ Autocomplete Integration:
+###  Autocomplete Integration:
 - Uses **BioPortal API** for:
   - SNOMED Condition/Procedure/Encounter term suggestions
 - Uses **RxNorm API** to fetch drug names from predicted codes
 
 ---
 
-## 🧪 Notebooks
+##  Notebooks
 
 ### `EDA.ipynb`
 - Data import and cleaning
@@ -120,35 +121,35 @@ PMRS/
 
 ## 🏁 Running the App
 
-### ✅ Step 1: Install Requirements
+###  Step 1: Install Requirements
 ```bash
 pip install flask pandas scikit-learn catboost joblib requests awesomplete
 ```
 
-### ✅ Step 2: Run Flask Server
+### Step 2: Run Flask Server
 ```bash
 python app.py
 ```
 
-### ✅ Step 3: Open in Browser
+### Step 3: Open in Browser
 Go to: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 💡 Key Highlights
+## Key Highlights
 
-- ✅ Personalized, data-driven medication recommendation engine
-- ✅ Multi-label classification using CatBoost + Classifier Chains
-- ✅ Interactive frontend with real-time suggestions via BioPortal
-- ✅ RxNorm drug name resolution from predicted codes
-- ✅ CSV logging for real-world record keeping
+-  Personalized, data-driven medication recommendation engine
+-  Multi-label classification using CatBoost + Classifier Chains
+- Interactive frontend with real-time suggestions via BioPortal
+- RxNorm drug name resolution from predicted codes
+- CSV logging for real-world record keeping
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
-- 🧬 Integrate patient history or unstructured EHR notes using NLP
-- 🤖 Use transformer-based models (e.g. T5, ClinicalBERT) for clinical note interpretation
-- 💾 Connect to FHIR-compatible EMRs for real patient data
-- 📊 Add analytics dashboards for prediction trends and accuracy
-- 🧱 Move from joblib → ONNX model export for cross-platform deployment
+- Integrate patient history or unstructured EHR notes using NLP
+-  Use transformer-based models (e.g. T5, ClinicalBERT) for clinical note interpretation
+- Connect to FHIR-compatible EMRs for real patient data
+- Add analytics dashboards for prediction trends and accuracy
+-  Move from joblib → ONNX model export for cross-platform deployment
