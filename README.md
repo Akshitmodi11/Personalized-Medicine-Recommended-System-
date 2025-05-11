@@ -48,7 +48,7 @@ PMRS/
 
 ---
 
-## 📊Data Pipeline
+## Data Pipeline
 
 ### 1. **Preprocessing:**
 - Patient records include fields like age, gender, city, race, ethnicity, height, weight, marital status, smoking status, etc.
