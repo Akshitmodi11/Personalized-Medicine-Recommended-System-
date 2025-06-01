@@ -124,7 +124,7 @@ PMRS/
 
 ---
 
-## 🏁 Running the App
+## Running the App
 
 ###  Step 1: Install Requirements
 ```bash
@@ -154,7 +154,112 @@ Go to: [http://localhost:5000](http://localhost:5000)
 ##  Future Improvements
 
 - Integrate patient history or unstructured EHR notes using NLP
+
 -  Use transformer-based models (e.g. T5, ClinicalBERT) for clinical note interpretation
 - Connect to FHIR-compatible EMRs for real patient data
 - Add analytics dashboards for prediction trends and accuracy
 -  Move from joblib → ONNX model export for cross-platform deployment
+
+
+# Personalized Medicine Recommendation System using T5
+
+This project implements a **T5-based sequence-to-sequence transformer model** to generate personalized medication recommendations based on a patient's clinical history, demographics, and unstructured notes. The system is built using **Hugging Face Transformers** and fine-tuned on synthetic clinical data that emulates real-world EHR scenarios.
+
+---
+
+## Objective
+
+To support clinical decision-making by generating appropriate medication suggestions using AI. The system reads both **structured** data (age, gender, vitals) and **unstructured** clinical notes (diagnosis, conditions, past medications), and outputs a recommended list of medications.
+
+---
+
+## Model Architecture
+
+- **Model**: [`google/flan-t5-base`](https://huggingface.co/google/flan-t5-base)
+- **Type**: Text-to-text transformer (encoder-decoder)
+- **Tokenizer**: `T5Tokenizer` with custom task prefix (`"recommend: "`)
+
+---
+
+# NLP Preprocessing Pipeline
+
+# Data Types Used
+
+- **Structured Fields**: Age, gender, marital status, smoking status, city, state, zip, race, ethnicity
+- **Unstructured Notes**: Condition notes, procedure notes, medication history, encounter summaries
+
+# Preprocessing Steps
+
+1. **Text Cleaning**
+   - Lowercasing, removing special characters
+   - Normalizing medical abbreviations (`HTN → hypertension`)
+
+2. **Input Format Construction**
+   Combined all fields into a single string:
+
+3. **Output Format**
+Target medications are structured as a text list:
+
+
+4. **Tokenization**
+- Used `T5Tokenizer`
+- Applied max length padding and truncation
+- Handled long notes with sliding window truncation if needed
+
+5. **Dataset Preparation**
+- Converted into Hugging Face `DatasetDict`
+- Train-validation-test split (80/10/10)
+
+---
+
+# Training Configuration
+
+- **Framework**: PyTorch with Hugging Face Transformers
+- **Loss Function**: CrossEntropy with label smoothing
+- **Scheduler**: Linear warmup with learning rate decay
+- **Optimization**:
+- Gradient accumulation
+- Mixed precision (fp16)
+- Early stopping
+
+---
+
+# Environment
+
+- **Hardware**: 2× NVIDIA A100 GPUs (42 GB VRAM each)
+- **Dataset Size**: 51,000 patient records (structured + unstructured)
+- **Training Duration**: ~2.5 hours per epoch (8 epochs total)
+
+---
+
+## 📈 Evaluation Results
+
+| Metric             | Value       |
+|--------------------|-------------|
+| **F1 Score**       | ~0.49       |
+| **Exact Match**    | ~28%        |
+| **Partial Match**  | ~74%        |
+| **Inference Time** | ~80ms/sample|
+
+---
+
+## Sample Input/Output
+
+**Input Example**:recommend: age: 70 | gender: female | condition: type 2 diabetes, hypertension | notes: patient complains of fatigue and blurry vision...
+
+
+**Predicted Output**:[metformin, lisinopril, atorvastatin]
+ Use Cases
+Clinical Decision Support Systems (CDSS)
+
+Medication Refill Assistant
+
+EMR-integrated AI-powered prescription tool
+
+
+
+
+
+
+
+
