@@ -122,6 +122,14 @@ PMRS/
 - Model training with `CatBoostClassifier` inside `ClassifierChain`
 - Evaluation on test split and saving `pkl` files for production
 
+##The CatBoost-based multi-label classification model was evaluated on a held-out test set using standard multi-label evaluation metrics. The performance indicates robust prediction capabilities across diverse medication code combinations.
+
+| Metric                            | Score  |
+| --------------------------------- | ------ |
+| **Micro F1 Score**                | 0.8513 |
+| **Hamming Loss**                  | 0.0105 |
+| **Subset Accuracy (Exact Match)** | 0.6229 |
+
 ---
 
 ## Running the App
@@ -232,7 +240,7 @@ Target medications are structured as a text list:
 
 ---
 
-## 📈 Evaluation Results
+## Evaluation Results
 
 | Metric             | Value       |
 |--------------------|-------------|
