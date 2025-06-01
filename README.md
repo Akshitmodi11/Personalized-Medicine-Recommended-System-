@@ -181,14 +181,14 @@ To support clinical decision-making by generating appropriate medication suggest
 
 ---
 
-# NLP Preprocessing Pipeline
+## NLP Preprocessing Pipeline
 
-# Data Types Used
+## Data Types Used
 
 - **Structured Fields**: Age, gender, marital status, smoking status, city, state, zip, race, ethnicity
 - **Unstructured Notes**: Condition notes, procedure notes, medication history, encounter summaries
 
-# Preprocessing Steps
+## Preprocessing Steps
 
 1. **Text Cleaning**
    - Lowercasing, removing special characters
@@ -212,7 +212,7 @@ Target medications are structured as a text list:
 
 ---
 
-# Training Configuration
+## Training Configuration
 
 - **Framework**: PyTorch with Hugging Face Transformers
 - **Loss Function**: CrossEntropy with label smoothing
@@ -224,7 +224,7 @@ Target medications are structured as a text list:
 
 ---
 
-# Environment
+## Environment
 
 - **Hardware**: 2× NVIDIA A100 GPUs (42 GB VRAM each)
 - **Dataset Size**: 51,000 patient records (structured + unstructured)
